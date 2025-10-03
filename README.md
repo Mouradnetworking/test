@@ -58,13 +58,9 @@ python3 EXO1/udp_client_without_expectation.py
   ```bash
   python3 EXO1/udp_server.py
   ```
-- Terminal 2 (client 1) :  
+- Terminal 2 (Multi UDP clients) :  
   ```bash
-  python3 EXO1/udp_client_without_expectation.py
-  ```
-- Terminal 3 (client 2) :  
-  ```bash
-  python3 EXO1/udp_client_without_expectation.py
+  python3 EXO1/Multi_clients_Boucle.py
   ```
 
 ---
@@ -94,7 +90,10 @@ python3 EXO1/udp_client_without_expectation.py
   ```bash
   python3 EXO2/tcp_client.py
   ```
-
+- Multi TCP Clients :  
+  ```bash
+  python3 EXO2/multi_clients_tcp.py
+  ```
 ---
 
 ### Exercice 3 – Web Server

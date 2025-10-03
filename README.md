@@ -31,7 +31,37 @@ Ce dépôt contient les solutions du TP1 du cours **PROGRES**, portant sur la pr
    cd ~/Download/TME01_harima_tireche
 ```
 
-1. Lancer le serveur dans un terminal :
+1/2/. Lancer le serveur dans un terminal :
    ```bash
    python3 EXO1/udp_server.py
+   ```
+1/2. Lancer le client dans un autre terminal :
+   ```bash
+   python3 EXO1/udp_client_without_expectation.py #For different host same code just the ip @ not the same
+   ```
+> ⚠️ To stop it, press: **Ctrl+C**
+
+3.1. Lancer le serveur dans un terminal :
+   ```bash
+   python3 EXO1/udp_server.py
+   ```
+3.2. Lancer le client dans le 2éme terminal :
+   ```bash
+   python3 EXO1/udp_client_without_expectation.py 
+   ```
+3.3. Lancer le client dans le 3éme terminal :
+   ```bash
+   python3 EXO1/udp_client_without_expectation.py 
+   ```
+4.1. Lancer le serveur avec pertes :
+   ```bash
+   python3 EXO1/server_prob.py
+   ```
+4.2. Lancer le client :
+   ```bash
+   python3 EXO1/udp_client_without_expectation.py 
+   ```
+4.3. Client tolérant aux pertes :
+   ```bash
+   python3 EXO1/udp_client_with_expectation.py 
    ```

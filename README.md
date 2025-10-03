@@ -23,8 +23,8 @@ Ce dépôt contient les solutions du TP1 du cours **PROGRES**, portant sur la pr
 ## Exécution
 
 > ⚠️ Avant d’exécuter les programmes, assurez-vous d’avoir **Python 3** installé.  
-> Sur Linux/Mac : `python3`  
-> Sur Windows : `python`
+> - Sur Linux/Mac : `python3`  
+> - Sur Windows : `python`
 
 ### Exercice 1 – UDP Ping
    ```bash

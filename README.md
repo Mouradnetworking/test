@@ -2,8 +2,6 @@
 
 Ce dépôt contient les solutions du TP1 du cours **PROGRES**, portant sur la programmation de clients/serveurs en Python avec UDP et TCP.
 
----
-
 ## Structure du dépôt
 
 ### Exercice 1 – Client/Serveur UDP (Ping)
@@ -18,11 +16,7 @@ Ce dépôt contient les solutions du TP1 du cours **PROGRES**, portant sur la pr
 
 ### Exercice 3 – Serveur Web
 - `EXO3/server.py` : serveur Web minimaliste (réponses HTTP simples).
-- `EXO3/server_promp1.py` : variante du serveur Web, avec fonctionnalités supplémentaires.
 - `EXO3/index.html` : page de test à servir via le serveur.
-
-### Autres fichiers
-- `client2.py` et `server2.py` : versions alternatives ou brouillons de tests.
 
 ---
 
@@ -33,6 +27,11 @@ Ce dépôt contient les solutions du TP1 du cours **PROGRES**, portant sur la pr
 > Sur Windows : `python`
 
 ### Exercice 1 – UDP Ping
+   ```bash
+   cd ~/Download/TME01_harima_tireche
+```
+
 1. Lancer le serveur dans un terminal :
    ```bash
    python3 EXO1/udp_server.py
+   ```

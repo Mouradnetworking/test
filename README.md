@@ -1,4 +1,4 @@
-# TP Réseaux – PROGRES TME1
+# TP PROGRES TME1
 
 Ce dépôt contient les solutions du TP1 du cours **PROGRES**, portant sur la programmation de clients/serveurs en Python avec UDP et TCP.
 

@@ -35,7 +35,7 @@ Ce dépôt contient les solutions du TP1 du cours **PROGRES**, portant sur la pr
    ```bash
    python3 EXO1/udp_server.py
    ```
-1/2. Lancer le client dans un autre terminal :
+1/2/. Lancer le client dans un autre terminal :
    ```bash
    python3 EXO1/udp_client_without_expectation.py #For different host same code just the ip @ not the same
    ```
@@ -65,3 +65,4 @@ Ce dépôt contient les solutions du TP1 du cours **PROGRES**, portant sur la pr
    ```bash
    python3 EXO1/udp_client_with_expectation.py 
    ```
+et ainsi de suite avec la même logique

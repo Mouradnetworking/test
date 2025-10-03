@@ -1,12 +1,14 @@
 # TP PROGRES TME1
 
-Ce dépôt contient les solutions du TP1 du cours **PROGRES**, portant sur la programmation de clients/serveurs en Python avec UDP et TCP.
+Ce dépôt contient les solutions du TP1 du module **PROGRES**, portant sur la programmation de clients/serveurs UDP et TCP en Python.
+
+---
 
 ## Structure du dépôt
 
 ### Exercice 1 – Client/Serveur UDP (Ping)
 - `EXO1/udp_server.py` : serveur UDP qui reçoit et renvoie les messages du client.
-- `EXO1/udp_client_without_expectation.py` : client UDP basique qui envoie un message et mesure le RTT.
+- `EXO1/udp_client_without_expectation.py` : client UDP basique qui envoie un message (ping) et mesure le RTT.
 - `EXO1/udp_client_with_expectation.py` : client UDP amélioré, capable de gérer les pertes de réponses.
 - `EXO1/server_prob.py` : version du serveur qui oublie de répondre avec une probabilité de 0.5 (simule la perte de paquets).
 
@@ -24,45 +26,94 @@ Ce dépôt contient les solutions du TP1 du cours **PROGRES**, portant sur la pr
 
 > ⚠️ Avant d’exécuter les programmes, assurez-vous d’avoir **Python 3** installé.  
 > - Sur Linux/Mac : `python3`  
-> - Sur Windows : `python`
+> - Sur Windows : `python`  
 
 ### Exercice 1 – UDP Ping
-   ```bash
-   cd ~/Download/TME01_harima_tireche
+
+Se placer dans le dossier du TP :  
+```bash
+cd ~/Download/TME01_harima_tireche
 ```
 
-1/2/. Lancer le serveur dans un terminal :
-   ```bash
-   python3 EXO1/udp_server.py
-   ```
-1/2/. Lancer le client dans un autre terminal :
-   ```bash
-   python3 EXO1/udp_client_without_expectation.py #For different host same code just the ip @ not the same
-   ```
-> ⚠️ To stop it, press: **Ctrl+C**
+#### 1. Client/Serveur simple
+Dans un premier terminal (serveur) :  
+```bash
+python3 EXO1/udp_server.py
+```
 
-3.1. Lancer le serveur dans un terminal :
-   ```bash
-   python3 EXO1/udp_server.py
-   ```
-3.2. Lancer le client dans le 2éme terminal :
-   ```bash
-   python3 EXO1/udp_client_without_expectation.py 
-   ```
-3.3. Lancer le client dans le 3éme terminal :
-   ```bash
-   python3 EXO1/udp_client_without_expectation.py 
-   ```
-4.1. Lancer le serveur avec pertes :
-   ```bash
-   python3 EXO1/server_prob.py
-   ```
-4.2. Lancer le client :
-   ```bash
-   python3 EXO1/udp_client_without_expectation.py 
-   ```
-4.3. Client tolérant aux pertes :
-   ```bash
-   python3 EXO1/udp_client_with_expectation.py 
-   ```
-et ainsi de suite avec la même logique
+Dans un second terminal (client) :  
+```bash
+python3 EXO1/udp_client_without_expectation.py
+```
+
+💡 **Sur différentes machines** : le code reste identique, seule l’adresse IP du serveur doit être changée dans le client.  
+
+> Pour arrêter le serveur ou le client : **Ctrl+C**
+
+---
+
+#### 2. Plusieurs clients simultanés
+- Terminal 1 (serveur) :  
+  ```bash
+  python3 EXO1/udp_server.py
+  ```
+- Terminal 2 (client 1) :  
+  ```bash
+  python3 EXO1/udp_client_without_expectation.py
+  ```
+- Terminal 3 (client 2) :  
+  ```bash
+  python3 EXO1/udp_client_without_expectation.py
+  ```
+
+---
+
+#### 3. Gestion des pertes
+- Lancer le serveur avec pertes :  
+  ```bash
+  python3 EXO1/server_prob.py
+  ```
+- Lancer le client classique :  
+  ```bash
+  python3 EXO1/udp_client_without_expectation.py
+  ```
+- Lancer le client tolérant aux pertes :  
+  ```bash
+  python3 EXO1/udp_client_with_expectation.py
+  ```
+
+---
+
+### Exercice 2 – TCP Time
+- Serveur (terminal 1) :  
+  ```bash
+  python3 EXO2/server_tcp.py
+  ```
+- Client (terminal 2) :  
+  ```bash
+  python3 EXO2/tcp_client.py
+  ```
+
+---
+
+### Exercice 3 – Web Server
+- Lancer le serveur Web :  
+  ```bash
+  python3 EXO3/server.py
+  ```
+- Ouvrir un navigateur et accéder à :  
+  ```
+  http://localhost:8080/index.html
+  ```
+
+---
+
+## Tests recommandés
+- **Localhost** (même machine).  
+- **Deux machines différentes** (modifier l’adresse IP du serveur dans le client).  
+
+---
+
+## Auteur
+- *HARIMA Mourad Abdelmohcen*  
+- *TIRECHE Lina*  

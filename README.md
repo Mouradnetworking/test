@@ -103,9 +103,17 @@ python3 EXO1/udp_client_without_expectation.py
   ```
 - Ouvrir un navigateur et accéder à :  
   ```
-  http://localhost:8080/index.html
+  http://localhost:8080/ #OR http://localhost:8080/index.html (the server handle that)
   ```
+- Pour tester plusieurs requêtes au serveur, il existe deux méthodes :  
 
+  - Ouvrir plusieurs fenêtres ou onglets dans le navigateur web.  
+  - Exécuter la commande suivante dans le terminal (MacOS/Linux) :
+  ```bash
+  for i in {1..100}; do echo "Request $i"; curl -s http://127.0.0.1:8080; echo; done
+  ```
+  - Cette commande permet de générer 100 requêtes automatiquement.  
+- **Remarque :** assurez-vous que `curl` est installé et que le serveur est lancé avant de l’exécuter.
 ---
 
 ## Tests recommandés

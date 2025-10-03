@@ -2,6 +2,7 @@
 
 Ce dépôt contient les solutions du TP1 du module **PROGRES**, portant sur la programmation de clients/serveurs UDP et TCP en Python.
 
+les promts utilisés dans ce TP: https://chatgpt.com/share/68dd969a-20f4-8011-b235-2e50fb6b5012 le reste self skills.
 ---
 
 ## Structure du dépôt

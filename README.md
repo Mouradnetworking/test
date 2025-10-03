@@ -2,7 +2,7 @@
 
 Ce dépôt contient les solutions du TP1 du module **PROGRES**, portant sur la programmation de clients/serveurs UDP et TCP en Python.
 
-les prompts utilisés dans ce TP: https://chatgpt.com/share/68dd969a-20f4-8011-b235-2e50fb6b5012 le reste self skills.
+les prompts utilisés dans ce TP: https://chatgpt.com/share/68dd969a-20f4-8011-b235-2e50fb6b5012. Le reste a été réalisé avec nos compétences personnelles.
 ---
 
 ## Structure du dépôt
@@ -12,10 +12,12 @@ les prompts utilisés dans ce TP: https://chatgpt.com/share/68dd969a-20f4-8011-b
 - `EXO1/udp_client_without_expectation.py` : client UDP basique qui envoie un message (ping) et mesure le RTT.
 - `EXO1/udp_client_with_expectation.py` : client UDP amélioré, capable de gérer les pertes de réponses.
 - `EXO1/server_prob.py` : version du serveur qui oublie de répondre avec une probabilité de 0.5 (simule la perte de paquets).
+- `EXO1/Multi_clients_Boucle.py` : script pour lancer **plusieurs clients UDP simultanément** et observer l’interleaving des messages et le RTT moyen par client.
 
 ### Exercice 2 – Client/Serveur TCP (Time server)
 - `EXO2/server_tcp.py` : serveur TCP qui envoie l’heure locale au client.
 - `EXO2/tcp_client.py` : client TCP qui interroge le serveur et calcule la différence d’horloge.
+- `EXO2/multi_clients_tcp.py` : script pour lancer **plusieurs clients TCP simultanément**, permettant de tester la gestion de plusieurs connexions concurrentes par le serveur.
 
 ### Exercice 3 – Serveur Web
 - `EXO3/server.py` : serveur Web minimaliste (réponses HTTP simples).

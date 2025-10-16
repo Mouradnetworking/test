@@ -44,7 +44,7 @@ Le serveur écoute sur le port défini dans le code (ex : 5555).
 python3 relay.py <server_ip> <server_port>
 ```
 
-# Exemple pour un serveur local :
+### Exemple pour un serveur local :
 
 ```bash
 python3 relay.py 127.0.0.1 5555
@@ -60,7 +60,7 @@ Par défaut, le client se connecte au relai sur 127.0.0.1:5555.
 
 Le client peut envoyer un message et reçoit la réponse du serveur via le relai.
 
-# Fonctionnement général
+## Fonctionnement général
 
 * Le client envoie une requête au relai.
 * Le relai se connecte au serveur et transmet la requête.

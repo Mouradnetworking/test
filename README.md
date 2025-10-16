@@ -44,7 +44,7 @@ Le serveur écoute sur le port défini dans le code (ex : 5555).
 python3 relay.py <server_ip> <server_port>
 ```
 
-### Exemple pour un serveur local :
+Exemple pour un serveur local :
 
 ```bash
 python3 relay.py 127.0.0.1 5555

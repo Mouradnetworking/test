@@ -116,7 +116,7 @@ Points importants
 
 ---
 
-# Exercice 2 : Relais HTTP
+# Compte rendu – Exercice 2 : Relais HTTP
 ##  Objectif
 
 L'objectif de l'exercice 2 est de transformer le **relai TCP** de l'exercice 1 en un **relai HTTP** spécialisé, en implémentant trois fonctionnalités distinctes :
@@ -131,24 +131,7 @@ Enfin, on doit **tester ces relais individuellement**, puis **enchaînés** dans
 
 ---
 
-## Architecture générale
-
-Tous les relais suivent le même principe :
-
-- Écoute sur un **port local fixe** (codé en dur : 8080, 8081, 8082…)
-- Prend **2 arguments en ligne de commande** :
-
-```bash
-python relai.py <serveur_distant> <port_serveur_distant>
-```
-
-- Forward les requêtes HTTP `GET` vers le serveur cible, sauf comportement spécifique.
-
-Le **serveur HTTP de test** (`http_server.py`) répond à toute URI avec une page simple affichant le chemin demandé.
-
----
-
-## 1️⃣ Cache HTTP
+## 1 Cache HTTP
 
 ### Fonctionnalité
 
@@ -157,34 +140,32 @@ Le **serveur HTTP de test** (`http_server.py`) répond à toute URI avec une pag
 
 ### Implémentation
 
-- Dictionnaire `CACHE = {}` avec clé = URI, valeur = réponse HTTP brute (bytes).
+- Dictionnaire `CACHE = {}` avec clé = URI, valeur = réponse de serveur.
 - Analyse de la requête avec une expression régulière :
 
 ```python
 re.match(rb"GET (\S+) HTTP/1\.[01]", request)
 ```
-
+prompt qui nous a aider a realiser le code : Créer un programme Python a partir du relai tcp exo1 qui va fonctionne comme un proxy HTTP avec système de cache. Ce programme doit écouter sur le port 5555 et rediriger les requêtes vers un serveur spécifié en paramètre. Quand il reçoit une requête GET d'un client, il doit d'abord vérifier si la réponse est déjà stockée dans un cache en mémoire. Si c'est le cas, il renvoie directement la réponse mise en cache. Sinon, il forwarde la requête au vrai serveur, stocke la réponse dans le cache, et la renvoie au client. Le programme doit pouvoir gérer plusieurs clients simultanément avec des threads et extraire l'URI des requêtes GET pour utiliser comme clé de cache.
 ### Test
 
 ```bash
-python cache.py localhost 8000
+python3 cache.py localhost 8000
 curl http://localhost:8080/test
 curl http://localhost:8080/test  # 2ᵉ fois → pas de nouvelle requête au serveur
 ```
 
-✅ **Résultat** : le serveur ne reçoit qu'une seule requête pour la même URI.
+ **Résultat** : le vrai serveur ne reçoit qu'une seule requête pour la même URI pour gagner en latence.
 
 ---
 
-##  Sniffeur HTTP (Logger)
+## 2 Sniffeur HTTP (Logger)
 
 ### Fonctionnalité
 
 - Archive dans `http.log` (format JSON) :
   - Adresse IP du client
   - URI demandée
-  - Taille de la réponse
-  - Timestamp
 - Fournit un outil de recherche : `search_log.py <partie_URI>`
 
 ### Implémentation
@@ -192,27 +173,30 @@ curl http://localhost:8080/test  # 2ᵉ fois → pas de nouvelle requête au ser
 - Écriture atomique dans `http.log` à chaque requête `GET` avec réponse non vide.
 - Programme de recherche qui filtre les entrées par URI.
 
+*** outils ***
+prompt qui a aider a generer la fonction handle_client :
+Crée une fonction qui gère entièrement le processus de relais HTTP entre un client et un serveur distant : elle doit recevoir la requête du client, établir une connexion vers le serveur cible, transmettre la requête, collecter la réponse complète par morceaux tout en gérant les flux de données potentiellement fragmentés, journaliser l'adresse IP du client et l'URI demandée dans un fichier de logs au format JSON pour traçabilité, puis renvoyer la réponse au client, le tout en assurant une gestion robuste des erreurs réseau et une fermeture propre des sockets dans tous les scénarios pour éviter les fuites de ressources.
 ### Test
 
 ```bash
-python sniff.py localhost 8000
+python3 sniff.py localhost 8000
 curl http://localhost:8080/secret
-python search_log.py secret
+python3 search_log.py secret
 ```
 
 ✅ **Résultat** : affiche `Client IP: 127.0.0.1 | URI: /secret`
 
 ---
 
-## Censeur HTTP
+## 3 Censeur HTTP
 
 ### Fonctionnalité
 
 - Lit une liste de sites/URI interdits depuis `blocked_sites.txt`.
 - Si une requête contient une URI interdite :
-  - Répond `"Interdit"` au client
+  - Répond `"Interdit"` au client (donc le relais agit comme un filtre ou bien firwall)
   - **Ne contacte pas** le serveur
-  - Logge l'IP du client dans `blocked.log`
+  - Logge l'IP du client dans `blocked.log` pour garder la trace.
 
 ### Fichier de configuration (`blocked_sites.txt`)
 
@@ -225,7 +209,7 @@ facebook.com
 ### Test
 
 ```bash
-python censure.py localhost 8000
+python3 censure.py localhost 8000
 curl http://localhost:8080/secret
 ```
 
@@ -249,16 +233,16 @@ Client
 
 ```bash
 # Terminal 1
-python server.py
+python3 server.py
 
 # Terminal 2
-python censure.py localhost 8000        # écoute sur 8082
+python3 censure.py localhost 8000        # écoute sur 8082
 
 # Terminal 3
-python sniff.py localhost 8082        # écoute sur 8081
+python3 sniff.py localhost 8082        # écoute sur 8081
 
 # Terminal 4
-python ]cache.py localhost 8081         # écoute sur 8080
+python3 cache.py localhost 8081         # écoute sur 8080
 ```
 
 ### Tests de la chaîne
@@ -281,6 +265,7 @@ python ]cache.py localhost 8081         # écoute sur 8080
 | `censure.py` | Relai avec censure (port 8082) |
 | `blocked_sites.txt` | Liste des URI interdites |
 | `search_log.py` | Outil de recherche dans les logs |
+| `blocked.py` | Pour garder la tracabilité |
 
 ---
 

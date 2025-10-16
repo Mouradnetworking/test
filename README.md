@@ -116,7 +116,7 @@ Points importants
 
 ---
 
-# Compte rendu – Exercice 2 : Relais HTTP
+# Exercice 2 : Relais HTTP
 ##  Objectif
 
 L'objectif de l'exercice 2 est de transformer le **relai TCP** de l'exercice 1 en un **relai HTTP** spécialisé, en implémentant trois fonctionnalités distinctes :

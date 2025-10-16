@@ -8,7 +8,7 @@
 
 ---
 
-# EXO 1 - Relai TCP Client-Serveur en Python
+# EXO 1 - Relai TCP Client-Serveur en Python ||| Prompt: https://chatgpt.com/share/68f17eaa-af30-8011-82f9-1015a6addc5a
 
 ## Description
 
